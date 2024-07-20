@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +19,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body className={inter.className}>
-                <div className="border-b ">
-                    <div className="flex h-16 text-center text-2xl font-bold px-4 container mx-auto mt-6">
-                        ImageGallery
-                        <div className="ml-auto flex text-center space-x-4">
-                            <Avatar>
-                                <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                        </div>
-                    </div>
-                </div>
+              <Navbar/>
                 <div className="flex ">
                 <Sidebar className="w-1/5" />
                 <div className="w-full">{children}</div>
