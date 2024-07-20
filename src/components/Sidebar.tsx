@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Album, Heart, Images } from "lucide-react";
+import Link from "next/link";
 
 function Sidebar({ className }: { className?: string }) {
     return (
@@ -11,13 +12,16 @@ function Sidebar({ className }: { className?: string }) {
                         Manage
                     </h2>
                     <div className="space-y-1">
+                       <Link href={"gallery"}>
                         <Button
-                            variant="secondary"
+                            variant="ghost"
                             className="w-full justify-start"
-                        >
+                            >
                             <Images size={18} />
                             <span className="p-2 font-semibold">Gallery</span>
                         </Button>
+                            </Link>
+                            <Link href={"/album"}>
                         <Button
                             variant="ghost"
                             className="w-full justify-start"
@@ -25,6 +29,8 @@ function Sidebar({ className }: { className?: string }) {
                             <Album size={18} />
                             <span className="p-2 font-semibold">Album</span>
                         </Button>
+                        </Link>
+                        <Link href={"favorite"}>
                         <Button
                             variant="ghost"
                             className="w-full justify-start"
@@ -32,6 +38,7 @@ function Sidebar({ className }: { className?: string }) {
                             <Heart size={18} />
                             <span className="p-2 font-semibold">Favorite</span>
                         </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
