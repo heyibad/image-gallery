@@ -2,17 +2,20 @@
 import { MarkAsFav } from "@/app/actions/MarkAsFav";
 import { Heart } from "lucide-react";
 import { CldImage } from "next-cloudinary";
-import React, { useTransition } from "react";
+import React, {  useState, useTransition } from "react";
 
-
-
-const Images = (props:any) => {
+const Images = (props: any) => {
     const [isPending, startTransition] = useTransition();
-    const isFavorite = props.data.tags.includes("favorite");
+    const [isFavorite, SetIsFavorited] = useState(
+        props.data.tags.includes("favorite")
+    );
 
+    
     const handleMarkAsFav = () => {
         startTransition(() => {
-            MarkAsFav({ public_id: props.data.public_id, isFavorite,path:props.path});
+            props.onUnFav(props.data)
+            SetIsFavorited((prev: any) => !prev);
+            MarkAsFav({ public_id: props.data.public_id, isFavorite });
         });
     };
 
