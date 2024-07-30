@@ -74,3 +74,18 @@
       @apply bg-background text-foreground;
     }
   }
+
+  /* Tailwind CSS custom configuration */
+@layer utilities {
+  .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-auto-rows: 1px;
+      gap: 16px;
+  }
+  .masonry-item {
+      display: grid;
+      break-inside: avoid;
+      padding-bottom: 16px;
+  }
+}

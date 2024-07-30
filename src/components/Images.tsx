@@ -3,6 +3,7 @@ import { MarkAsFav } from "@/app/actions/MarkAsFav";
 import { Heart } from "lucide-react";
 import { CldImage } from "next-cloudinary";
 import React, {  useState, useTransition } from "react";
+import { DropDown } from "./Dropdown";
 
 const Images = (props: any) => {
     const [isPending, startTransition] = useTransition();
@@ -23,7 +24,7 @@ const Images = (props: any) => {
         <div className="relative">
             <CldImage {...props} />
             <div
-                className="absolute top-2 right-2 hover:text-red-600 cursor-pointer"
+                className="absolute top-3 right-2 hover:text-red-600 cursor-pointer"
                 onClick={handleMarkAsFav}
             >
                 {isFavorite ? (
@@ -39,6 +40,7 @@ const Images = (props: any) => {
                     <Heart />
                 )}
             </div>
+            <DropDown/>
         </div>
     );
 };
