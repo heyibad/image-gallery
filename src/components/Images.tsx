@@ -22,7 +22,7 @@ const Images = (props: any) => {
 
     return (
         <div className="relative">
-            <CldImage {...props} />
+            <CldImage className=" rounded-md" {...props} />
             <div
                 className="absolute top-3 right-2 hover:text-red-600 cursor-pointer"
                 onClick={handleMarkAsFav}
@@ -40,7 +40,7 @@ const Images = (props: any) => {
                     <Heart />
                 )}
             </div>
-            <DropDown/>
+            <DropDown data={props.data}/>
         </div>
     );
 };
