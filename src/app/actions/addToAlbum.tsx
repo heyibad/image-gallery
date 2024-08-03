@@ -12,13 +12,13 @@ export async function addToAlbum({
 }) {
     await cloudinary.v2.api.create_folder(folderName);
     let parts = image.public_id.split("/");
-    console.log(parts);
+    // console.log(parts);
     if (parts.length > 1) {
      parts=parts.slice(1);
-     console.log(parts);
+    //  console.log(parts);
     }
     const publidId = parts.join("/");
-    console.log(publidId);
+    // console.log(publidId);
     await cloudinary.v2.uploader.rename(
         image.public_id,
         `${folderName}/${publidId}`
