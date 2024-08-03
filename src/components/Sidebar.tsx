@@ -30,7 +30,7 @@ function Sidebar({ className }: { className?: string }) {
                             <span className="p-2 font-semibold">Album</span>
                         </Button>
                         </Link>
-                        <Link href={"favorite"}>
+                        <Link href={"/favorite"}>
                         <Button
                             variant="ghost"
                             className="w-full justify-start"
