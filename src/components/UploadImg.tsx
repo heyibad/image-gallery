@@ -20,9 +20,11 @@ const UploadImg = () => {
                                   },1000)
                                     // { public_id, secure_url, etc }
                                 }}
-                            ><div className="flex gap-2 item-center">
+                            ><div className="flex gap-2 item-center ">
                             <Upload  size={18}/>
-Upload
+                            <span className="hidden md:block">
+                                Upload
+                            </span>
                         </div>
                             </CldUploadButton>
 

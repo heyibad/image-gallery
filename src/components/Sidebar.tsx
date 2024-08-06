@@ -10,7 +10,9 @@ async function Sidebar({ className }: { className?: string }) {
         <div className={`${className} pb-12 `}>
             <div className="space-y-4 py-4">
                 <div className="px-3 py-2">
-                    <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+                    <h2 className="mb-2 px-4 
+                    hidden md:block
+                    text-lg font-semibold tracking-tight">
                         Manage
                     </h2>
                     <div className="space-y-1">
@@ -23,7 +25,7 @@ async function Sidebar({ className }: { className?: string }) {
                                 key={folder.name}
                                 title={folder.name}
                                 href={`/album/${folder.name}`}
-                                className="pl-7 "
+                                className="pr-16 hidden md:block "
                             />
                         ))}
                         <SideBarLinks title="Favorite" href="/favorite" />

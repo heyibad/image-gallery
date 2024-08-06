@@ -15,7 +15,7 @@ const Page = async () => {
     return (
         <div>
             <div className="flex justify-between pt-6 px-6 items-center">
-                <h1 className="text-4xl font-semibold pb-2">Gallery</h1>
+                <h1 className=" pl-8 text-3xl md:text-4xl font-semibold pb-3">Gallery</h1>
                 <div>
                     <UploadImg />
                 </div>

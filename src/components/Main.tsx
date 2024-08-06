@@ -22,14 +22,14 @@ const Main = (props:any) => {
         }));
     };
   return (
-    <div className="grid grid-cols-4 gap-4 mt-4 mx-4">
+    <div className=" sm:flex  sm:justify-center sm:item-center md:grid md:grid-cols-4 gap-4 mt-4 mx-4 ml-12">
     {[
         getColIndex(0),
         getColIndex(1),
         getColIndex(2),
         getColIndex(3),
     ].map((array, index) => (
-        <div key={index} className="flex flex-col gap-4">
+        <div key={index} className="flex flex-col gap-2 md:gap-4">
             {array.map((col: any) => (
                 <Images
                     key={col.public_id}
@@ -40,6 +40,7 @@ const Main = (props:any) => {
                     alt="Description of my image"
                     data={col}
                     onUnFav={handleUnFav}
+                    
                 />
             ))}
         </div>

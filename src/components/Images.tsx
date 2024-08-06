@@ -22,7 +22,7 @@ const Images = (props: any) => {
 
     return (
         <div className="relative">
-            <CldImage className=" rounded-md" {...props} />
+            <CldImage className="pt-2 md:pt-0 rounded-md" {...props} />
             <div
                 className="absolute top-3 right-2 hover:text-red-600 cursor-pointer"
                 onClick={handleMarkAsFav}
