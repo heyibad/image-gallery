@@ -1,22 +1,27 @@
-"use client";
-import { CldUploadButton } from "next-cloudinary";
-import { CldImage } from "next-cloudinary";
-import { useState } from "react";
-export default function Home() {
-    const [details, setDetails] = useState<string | undefined>("");   
+import UploadImg from "@/components/UploadImg";
+import React from "react";
+import cloudinary from "cloudinary";
+import Main from "@/components/Main";
 
+const Gallery = async () => {
+    const results = await cloudinary.v2.search
+        .expression("resource_type:image")
+        .sort_by("created_at", "desc")
+        .with_field("tags")
+        .max_results(12)
+        .execute();
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-       
-
-            {/* <CldImage
-                width="960"
-                height="600"
-                src="<Public ID>"
-                sizes="100vw"
-                alt="Description of my image"
-            /> */}
-        </main>
+        <div>
+            <div className="flex justify-between pt-6 px-6 items-center">
+                <h1 className="text-4xl font-semibold pb-2">Gallery</h1>
+                <div>
+                    <UploadImg />
+                </div>
+            </div>
+            <Main data={results} />
+        </div>
     );
-}
+};
+
+export default Gallery;
