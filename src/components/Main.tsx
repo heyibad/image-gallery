@@ -10,7 +10,7 @@ const Main = (props:any) => {
         );
     };
     const [results, setResults] = useState(props.data || { resources: [] });
-    console.log(results);
+    // console.log(results);
 
     const handleUnFav = (state: any) => {
         

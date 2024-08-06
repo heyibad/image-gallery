@@ -1,9 +1,11 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Album, Heart, Images } from "lucide-react";
-import Link from "next/link";
+"use server";
+import cloudinary from "cloudinary";
+import SideBarLinks from "./SideBarLinks";
 
-function Sidebar({ className }: { className?: string }) {
+async function Sidebar({ className }: { className?: string }) {
+    const { folders } = await cloudinary.v2.api.root_folders();
+    console.log(folders);
+
     return (
         <div className={`${className} pb-12 `}>
             <div className="space-y-4 py-4">
@@ -12,33 +14,19 @@ function Sidebar({ className }: { className?: string }) {
                         Manage
                     </h2>
                     <div className="space-y-1">
-                       <Link href={"gallery"}>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start"
-                            >
-                            <Images size={18} />
-                            <span className="p-2 font-semibold">Gallery</span>
-                        </Button>
-                            </Link>
-                            <Link href={"/album"}>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start"
-                        >
-                            <Album size={18} />
-                            <span className="p-2 font-semibold">Album</span>
-                        </Button>
-                        </Link>
-                        <Link href={"/favorite"}>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start"
-                        >
-                            <Heart size={18} />
-                            <span className="p-2 font-semibold">Favorite</span>
-                        </Button>
-                        </Link>
+                        <SideBarLinks title="Gallery" href="/" />
+                        <SideBarLinks title="Album" href="/album" />
+                        {folders.map((folder: {
+                            name: string;
+                        }) => (
+                            <SideBarLinks
+                                key={folder.name}
+                                title={folder.name}
+                                href={`/album/${folder.name}`}
+                                className="pl-7 "
+                            />
+                        ))}
+                        <SideBarLinks title="Favorite" href="/favorite" />
                     </div>
                 </div>
             </div>

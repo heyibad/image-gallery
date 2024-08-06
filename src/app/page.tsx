@@ -2,14 +2,15 @@ import UploadImg from "@/components/UploadImg";
 import React from "react";
 import cloudinary from "cloudinary";
 import Main from "@/components/Main";
-
-const Gallery = async () => {
+const Page = async () => {
     const results = await cloudinary.v2.search
         .expression("resource_type:image")
         .sort_by("created_at", "desc")
         .with_field("tags")
         .max_results(12)
         .execute();
+
+   
 
     return (
         <div>
@@ -24,4 +25,4 @@ const Gallery = async () => {
     );
 };
 
-export default Gallery;
+export default Page;
