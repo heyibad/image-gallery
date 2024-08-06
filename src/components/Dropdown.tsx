@@ -27,7 +27,7 @@ export function DropDown(props:any) {
     const [open, setOpen] = useState(false);
     return (
         <div className="absolute top-2 left-2 ">
-            <DropdownMenu open={open} onOpenChange={setOpen}>
+            <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="outline" className="h-8 w-12">
                         <Menu size={16} />
