@@ -24,9 +24,9 @@ const FavBox = (props: any) => {
     };
 
     return (
-        <div className="grid grid-cols-4 gap-4 mt-4 mx-4">
+        <div className="sm:flex  sm:justify-center sm:item-center md:grid md:grid-cols-4 gap-4 mt-4 mx-4 ml-12">
             {[0, 1, 2, 3].map((index) => (
-                <div key={index} className="flex flex-col gap-4">
+                <div key={index} className="flex flex-col gap-2 md:gap-4">
                     {getColIndex(index).map((col: any) => (
                         <Images
                             key={col.public_id}

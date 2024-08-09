@@ -14,7 +14,7 @@ const Favorites = async () => {
         <div>
             <ForceRefresh/>
             <div className="flex justify-between pt-6 px-6 items-center">
-                <h1 className="text-4xl font-semibold pb-2">Favorites</h1>
+                <h1 className="pt-2 pl-8 text-3xl md:text-4xl font-semibold pb-3">Favorites</h1>
                 <div>
                     <UploadImg />
                 </div>
