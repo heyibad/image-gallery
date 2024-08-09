@@ -1,4 +1,4 @@
-import { FolderPlus, Menu } from "lucide-react";
+import { Edit, FolderPlus, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { addToAlbum } from "@/app/actions/addToAlbum";
 import {
@@ -21,8 +21,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import Link from "next/link";
 
-export function DropDown(props:any) {
+export function DropDown(props: any) {
     const [albumName, setAlbumName] = useState("");
     const [open, setOpen] = useState(false);
     return (
@@ -49,7 +50,8 @@ export function DropDown(props:any) {
                                     <DialogHeader>
                                         <DialogTitle>Add to Click</DialogTitle>
                                         <DialogDescription>
-                                            Type an album name in which you want to add this photo
+                                            Type an album name in which you want
+                                            to add this photo
                                         </DialogDescription>
                                     </DialogHeader>
                                     <div className="grid gap-4 py-4">
@@ -57,33 +59,44 @@ export function DropDown(props:any) {
                                             <Label
                                                 htmlFor="name"
                                                 className="text-right pr-4 "
-                                            >   Album 
+                                            >
+                                                {" "}
+                                                Album
                                             </Label>
                                             <Input
-                                            onChange={e=>setAlbumName(e.currentTarget.value)}
+                                                onChange={(e) =>
+                                                    setAlbumName(
+                                                        e.currentTarget.value
+                                                    )
+                                                }
                                                 id="name"
                                                 value={albumName}
                                                 className="col-span-3 "
                                             />
                                         </div>
-                                     
                                     </div>
                                     <DialogFooter>
                                         <Button
-                                        onClick={ async()=>{
-                                            console.log(props.data)
-                                            await addToAlbum({
-                                                folderName: albumName,
-                                                image: props.data
-                                            });
-                                            setOpen(false)
-                                        }}
-                                        type="submit">
+                                            onClick={async () => {
+                                                await addToAlbum({
+                                                    folderName: albumName,
+                                                    image: props.data,
+                                                });
+                                                setOpen(false);
+                                            }}
+                                            type="submit"
+                                        >
                                             Add
                                         </Button>
                                     </DialogFooter>
                                 </DialogContent>
                             </Dialog>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                            <Link className=" text-xs cursor-pointer" href={`/edit?publicId=${encodeURI(props.data.public_id)}`}>
+                                <Edit className="mx-2 h-4 w-4 " />
+                                <span className="pl-4 py-1 text-xs">Edit</span>
+                            </Link>
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
