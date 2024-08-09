@@ -13,7 +13,7 @@ const Page = async ({searchParams:{search}}:PageProps) => {
         .expression(`resource_type:image ${search ? `AND tags=${search}`:""}`)
         .sort_by("created_at", "desc")
         .with_field("tags")
-        .max_results(12)
+        .max_results(20)
         .execute();
 
    

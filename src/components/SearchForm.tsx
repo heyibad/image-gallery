@@ -22,7 +22,7 @@ export const SearchForm = ({searchVal}:{searchVal:string}) => {
         setTag(searchVal);
     }, [searchVal]);
   return (
-    <div className="my-5 ml-12 ">
+    <div className="my-3 ml-12 ">
     <form
         className=" flex gap-2 mr-6"
         onSubmit={handleSubmit}

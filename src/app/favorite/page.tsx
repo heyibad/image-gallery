@@ -8,7 +8,7 @@ const Favorites = async () => {
         .expression("resource_type:image AND tags=favorite")
         .sort_by("created_at", "desc")
         .with_field('tags')
-        .max_results(12)
+        .max_results(20)
         .execute();
     return (
         <div>
