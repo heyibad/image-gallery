@@ -1,12 +1,16 @@
-// /pages/favorite.tsx
-
 import UploadImg from "@/components/UploadImg";
 import cloudinary from "cloudinary";
 import ForceRefresh from "@/components/ForceRefresh";
 import FavBox from "@/components/FavBox";
-import { GetServerSideProps } from "next";
 
-const Favorites = ({ results }: { results: any }) => {
+const Favorites = async () => {
+    const results = await cloudinary.v2.search
+        .expression("resource_type:image AND tags=favorite")
+        .sort_by("created_at", "desc")
+        .with_field('tags')
+        .max_results(20)
+        .execute();
+
     return (
         <div>
             <ForceRefresh />
@@ -19,21 +23,6 @@ const Favorites = ({ results }: { results: any }) => {
             <FavBox data={results} />
         </div>
     );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-    const results = await cloudinary.v2.search
-        .expression("resource_type:image AND tags=favorite")
-        .sort_by("created_at", "desc")
-        .with_field('tags')
-        .max_results(20)
-        .execute();
-
-    return {
-        props: {
-            results,
-        },
-    };
 };
 
 export default Favorites;
