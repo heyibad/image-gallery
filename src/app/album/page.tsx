@@ -1,6 +1,9 @@
 import React from "react";
 import cloudinary from "cloudinary";
 import { AlbumCard, recivingProp } from "@/components/AlbumCard";
+
+export const dynamic = 'auto'
+
 const Album = async () => {
     const { folders } = await cloudinary.v2.api.root_folders();
     return (

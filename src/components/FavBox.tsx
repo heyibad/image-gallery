@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Images from "@/components/Images";
 
-export const dynamic = 'auto'
 const FavBox = (props: any) => {
 
     const [results, setResults] = useState(props.data || { resources: [] });

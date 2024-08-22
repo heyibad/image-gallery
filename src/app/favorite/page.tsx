@@ -3,6 +3,8 @@ import cloudinary from "cloudinary";
 import ForceRefresh from "@/components/ForceRefresh";
 import FavBox from "@/components/FavBox";
 
+export const dynamic = 'auto'
+
 const Favorites = async () => {
     const results = await cloudinary.v2.search
         .expression("resource_type:image AND tags=favorite")

@@ -7,6 +7,8 @@ type CustomPropType = {
         id:string
     }
 }
+export const dynamic = 'auto'
+
 const CustomAlbum = async ({params:{id}}:CustomPropType) => {
     const results = await cloudinary.v2.search
         .expression(`resource_type:image AND folder=${id}`)

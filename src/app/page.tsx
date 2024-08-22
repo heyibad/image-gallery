@@ -8,6 +8,8 @@ type PageProps = {
     params: {};
     searchParams: { search: string };
 };
+export const dynamic = 'auto'
+
 const Page = async ({searchParams:{search}}:PageProps) => {
     const results = await cloudinary.v2.search
         .expression(`resource_type:image ${search ? `AND tags=${search}`:""}`)
