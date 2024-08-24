@@ -14,7 +14,7 @@ import SideBarLinks from "./SideBarLinks";
 
 function SmallSidebar() {
     return <div className=" relative h-8  md:hidden ">
- <div className="absolute pl-[310px]">
+ <div className="flex justify-end">
  <Sheet>
   <SheetTrigger className="my-4 mx-6    " > <Menu/> </SheetTrigger>
   <SheetContent>
