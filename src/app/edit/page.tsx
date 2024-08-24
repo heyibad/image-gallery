@@ -128,7 +128,7 @@ const Page = ({ searchParams: { publicId } }: PageProps) => {
                         onValueChange={setSelectedField}
                         value={selectedField}
                     >
-                        <SelectTrigger className="w-[60vw]">
+                        <SelectTrigger className="w-full md:w-[60vw]">
                             <SelectValue placeholder="Select" />
                         </SelectTrigger>
                         <SelectContent>
@@ -148,7 +148,7 @@ const Page = ({ searchParams: { publicId } }: PageProps) => {
                             </SelectItem>
                         </SelectContent>
                     </Select>
-                    <Button className="w-[60vw] mt-4" type="submit">
+                    <Button className=" w-full md:w-[60vw] mt-4" type="submit">
                         Generate
                     </Button>
                 </form>

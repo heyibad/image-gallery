@@ -21,10 +21,10 @@ const Page = async ({searchParams:{search}}:PageProps) => {
    
 
     return (
-        <div>
-            <div className="flex justify-between pt-6 px-6 items-center">
-                <h1 className="pt-2 pl-8 text-3xl md:text-4xl font-semibold pb-3">Gallery</h1>
-                <div className="ml-12">
+        <div className="ml-6">
+            <div className="flex justify-between pt-6 items-center">
+                <h1 className="pt-2 pl-5 text-3xl md:text-4xl font-semibold pb-3">Gallery</h1>
+                <div >
                     <UploadImg />
                 </div>
             </div>

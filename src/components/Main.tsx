@@ -22,7 +22,7 @@ const Main = (props:any) => {
         }));
     };
   return (
-    <div className=" sm:flex  sm:justify-center sm:item-center md:grid md:grid-cols-4 gap-4 mt-4 mx-4 ml-12">
+    <div className="sm:flex  sm:justify-center sm:item-center md:grid md:grid-cols-4 gap-4 mt-4 mx-4  md:ml-12 ml-18">
     {[
         getColIndex(0),
         getColIndex(1),

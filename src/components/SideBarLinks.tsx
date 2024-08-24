@@ -25,7 +25,7 @@ function SideBarLinks({ title, href,className }: { title: string; href: string, 
                 className={`w-full justify-start ${className}`}
             >
                 {renderIcon()}
-                <span className="p-2 font-semibold hidden md:inline">{title}</span>
+                <span className="p-2 font-semibold ">{title}</span>
             </Button>
         </Link>
     );

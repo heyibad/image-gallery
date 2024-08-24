@@ -22,14 +22,14 @@ export const SearchForm = ({searchVal}:{searchVal:string}) => {
         setTag(searchVal);
     }, [searchVal]);
   return (
-    <div className="my-3 ml-12 ">
+    <div className="my-3 md:ml-12 ml-2 ">
     <form
         className=" flex gap-2 mr-6"
         onSubmit={handleSubmit}
     >
       
 
-       <Input placeholder='Search By Tag' className="w-[60vw]" type="text" value={tag} onChange={(e)=> setTag(e.target.value)}/>
+       <Input placeholder='Search By Tag' className="w-full md:w-[60vw]" type="text" value={tag} onChange={(e)=> setTag(e.target.value)}/>
         <Button  className=" w-10 px-2 h-10" type="submit">
            <Search className='w-full'/>
         </Button>

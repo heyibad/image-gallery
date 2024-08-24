@@ -24,7 +24,7 @@ const Images = (props: any) => {
         <div className="relative">
             <CldImage className="pt-2 md:pt-0 rounded-md" {...props} />
             <div
-                className="absolute top-4 right-2 hover:text-red-600 cursor-pointer"
+                className="absolute top-4 right-8 md:right-2 hover:text-red-600 cursor-pointer"
                 onClick={handleMarkAsFav}
             >
                 {isFavorite ? (

@@ -9,26 +9,30 @@ const UploadImg = () => {
      const router = useRouter()
     return (
        
-                    <Button asChild >
+                <div className="md:mr-2 mr-4 flex">
+                      <Button asChild >
                         
-                            <CldUploadButton
+                        <CldUploadButton
+                        
+                            uploadPreset="ml_default"
+                            onUpload={(result: any) => {
+                              setTimeout(()=>{
+                                router.refresh()
+                              },1000)
+                                // { public_id, secure_url, etc }
+                            }}
                             
-                                uploadPreset="ml_default"
-                                onUpload={(result: any) => {
-                                  setTimeout(()=>{
-                                    router.refresh()
-                                  },1000)
-                                    // { public_id, secure_url, etc }
-                                }}
-                            ><div className="flex gap-2 item-center ">
-                            <Upload  size={18}/>
-                            <span className="hidden md:block">
-                                Upload
-                            </span>
-                        </div>
-                            </CldUploadButton>
+                        >
+                          <div className="flex gap-2 item-center ">
+                        <Upload  size={18}/>
+                        <span className="hidden md:block">
+                            Upload
+                        </span>
+                    </div>
+                        </CldUploadButton>
 
-                    </Button>
+                </Button>
+                </div>
          
     );
 };
